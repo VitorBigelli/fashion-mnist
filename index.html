@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <!-- Import TensowFlowJS -->
+        <script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest'></script>
+        <!-- Import TensowFlowJS Visualization Library -->
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+        <link href='styles.css' rel='stylesheet' >
+    </head>
+    <body>
+        <h1>Fashion Classifier</h1> 
+        <!-- Area for the user to draw -->
+        <canvas id='canvas' width='280' height='280'></canvas> 
+        <!-- 
+            Img element to store the drawed image 
+            This element cannot be seen by the user
+        -->
+        <img id='canvas-img' >
+
+        <input type='button' value='Classify' id='submit' size='48' >
+        <input type='button' value='Clear' id='clear' size='48' >
+
+        <!-- Import fashion mnist data preparation script -->
+        <script src='data.js' type='module'></script>
+        <!-- Import fashion mnist convolutional neural network -->
+        <script src='script.js' type='module'></script>
+    </body>
+</html>
