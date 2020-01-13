@@ -16,7 +16,7 @@ Manually fetches the sprite fashion mnist dataset
 and returns shuffled batches 
 */ 
 
-export class FMnist {
+export class FMnistData {
     
     constructor() {
         this.shuffledTrainIndex = 0; 
