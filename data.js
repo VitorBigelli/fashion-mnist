@@ -1,6 +1,6 @@
 const IMAGE_SIZE = 784; 
 const NUM_CLASSES = 10; 
-const NUM_DATASET_ELEMENTS = 7000; 
+const NUM_DATASET_ELEMENTS = 70000; 
 
 const TRAIN_TEST_RATIO = 1 / 7; 
 
@@ -96,7 +96,7 @@ export class FMnistData {
             batchSize, 
             [ this.trainImages, this.trainLabels ], 
             () => {
-                this.shuffledTrainIndex = (this.shuffledTrainIndex + 1) % this.trainIndice.length 
+                this.shuffledTrainIndex = (this.shuffledTrainIndex + 1) % this.trainIndices.length 
                 return this.trainIndices[this.shuffledTrainIndex]
             }
         )
@@ -115,7 +115,7 @@ export class FMnistData {
 
 
     nextBatch(batchSize, data, index) {
-        const batchImagesArray = new Float32Array(batchsize * IMAGE_SIZE)
+        const batchImagesArray = new Float32Array(batchSize * IMAGE_SIZE)
         const batchLabelsArray = new Uint8Array(batchSize * NUM_CLASSES)
 
         for (let i = 0; i < batchSize; i++) {

@@ -29,7 +29,7 @@ function getModel() {
     // the tf.train.adam() optimizer, and accuracy for your metrics.
     model.compile({
         loss: 'categoricalCrossentropy', 
-        optimizer: tf.optimizers.adam(), 
+        optimizer: tf.train.adam(), 
         metrics: ['accuracy']
     });
     
