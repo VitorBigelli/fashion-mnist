@@ -15,10 +15,15 @@ function getModel() {
     // HINT: Take a look at the MNIST example.
     model = tf.sequential();
     
-    model.add(tf.layers.conv2d({ inputShape: [28, 28, 1], kernelSize: 3, filters: 8, activation: 'relu'}))
+    model.add(tf.layers.conv2d({ inputShape: [28, 28, 1], kernelSize: 3, filters: 32, activation: 'relu'}))
     model.add(tf.layers.maxPooling2d({ poolSize: [2, 2]})) 
+    model.add(tf.layers.conv2d({ kernelSize: 3, filters: 16, activation: 'relu'}))
+    model.add(tf.layers.maxPooling2d({ poolSize: [2, 2]})) 
+    model.add(tf.layers.flatten()) 
     model.add(tf.layers.dense({ units: 128, activation: 'relu' }))
     model.add(tf.layers.dense({ units: 10, activation: 'softmax'}))
+
+    console.log('Compiling')
 
     // Compile the model using the categoricalCrossentropy loss,
     // the tf.train.adam() optimizer, and accuracy for your metrics.
@@ -73,6 +78,7 @@ async function train(model, data) {
         ]
     });
 
+    console.log('STARTING TRAINING')
     
     return model.fit(trainXs, trainYs, {
         batchSize: BATCH_SIZE,
@@ -131,16 +137,18 @@ function init() {
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mousedown", setPosition);
     canvas.addEventListener("mouseenter", setPosition);
-    saveButton = document.getElementById('sb');
+    saveButton = document.getElementById('submit');
     saveButton.addEventListener("click", save);
-    clearButton = document.getElementById('cb');
+    clearButton = document.getElementById('clear');
     clearButton.addEventListener("click", erase);
 }
 
 
 async function run() {
     const data = new FMnistData();
+    console.log('Loading data')
     await data.load();
+    console.log('Data loaded')
     const model = getModel();
     tfvis.show.modelSummary({name: 'Model Architecture'}, model);
     await train(model, data);

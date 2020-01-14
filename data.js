@@ -31,7 +31,7 @@ export class FMnistData {
         const ctx = canvas.getContext('2d') 
         const imgRequest = new Promise( (resolve, response) => {
             img.crossOrigin = '' 
-            img.onLoad = () => {
+            img.onload = () => {
                 img.width = img.naturalWidth 
                 img.height = img.naturalHeight 
 
@@ -81,7 +81,6 @@ export class FMnistData {
 
         this.datasetLabels = new Uint8Array(await labelsResponse.arrayBuffer())
 
-
         this.trainIndices = tf.util.createShuffledIndices(NUM_TRAIN_ELEMENTS) 
         this.testIndices = tf.util.createShuffledIndices(NUM_TEST_ELEMENTS) 
 
@@ -126,8 +125,8 @@ export class FMnistData {
             batchImagesArray.set(image, i * IMAGE_SIZE)
 
 
-            const LABEL = data[0].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES) 
-            batchLabelsArray.set(image, i * NUM_CLASSES)
+            const label = data[1].slice(idx * NUM_CLASSES, idx * NUM_CLASSES + NUM_CLASSES) 
+            batchLabelsArray.set(label, i * NUM_CLASSES)
         }
 
         const xs = tf.tensor2d(batchImagesArray, [batchSize, IMAGE_SIZE]) 
