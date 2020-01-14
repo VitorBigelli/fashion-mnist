@@ -15,10 +15,10 @@ function getModel() {
     // HINT: Take a look at the MNIST example.
     model = tf.sequential();
     
-    model.add(tf.layers.conv2d({ inputShape: [28, 28, 1], kernelSize: 3, filters: 32, activation: 'relu'}))
+    model.add(tf.layers.conv2d({ inputShape: [28, 28, 1], kernelSize: 3, filters: 16, activation: 'relu'}))
     model.add(tf.layers.maxPooling2d({ poolSize: [2, 2]})) 
-    model.add(tf.layers.conv2d({ kernelSize: 3, filters: 16, activation: 'relu'}))
-    model.add(tf.layers.maxPooling2d({ poolSize: [2, 2]})) 
+    model.add(tf.layers.conv2d({ kernelSize: 3, filters: 64, activation: 'relu'}))
+    model.add(tf.layers.maxPooling2d({ poolSize: [2, 2]}))  
     model.add(tf.layers.flatten()) 
     model.add(tf.layers.dense({ units: 128, activation: 'relu' }))
     model.add(tf.layers.dense({ units: 10, activation: 'softmax'}))
@@ -51,7 +51,7 @@ async function train(model, data) {
     // Use the container and metrics defined above as the parameters.
     const fitCallbacks = tfvis.show.fitCallbacks(container, metrics)
     
-    const BATCH_SIZE = 512;
+    const BATCH_SIZE = 128;
     const TRAIN_DATA_SIZE = 6000;
     const TEST_DATA_SIZE = 1000;
     
