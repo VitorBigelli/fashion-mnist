@@ -1,6 +1,6 @@
 # Fashion Mnist TensorFlow JS Classifier 
 
-This repository contains a TensorFlow JS model that trains on the [Fashion Mnist sprited dataset](https://storage.googleapis.com/learnjs-data/model-builder/fashion_mnist_images.png) and allow user to draw images to predict, all this running on the Chrome Web Browser.  
+This repository contains a Convolutional Neural Network build with TensorFlow JS that trains on the [Fashion Mnist sprited dataset](https://storage.googleapis.com/learnjs-data/model-builder/fashion_mnist_images.png) and allow user to draw images to predict, all this running on the Chrome Web Browser.  
 
 ## Setting up  
 
@@ -42,10 +42,11 @@ dense_Dense1 (Dense)         [null,128]                204928
 _________________________________________________________________ 
 dense_Dense2 (Dense)         [null,10]                 1290      
 ================================================================= 
-Total params: 215658 tfjs@latest:2:593007
-Trainable params: 215658 tfjs@latest:2:593032
+Total params: 215658 
+Trainable params: 215658 
 Non-trainable params: 0
 ``` 
 
 It trains on 7000 images, splitting on training and testing sets with 6000 and 1000 samples, respectively. 
+
 The training is made over 20 epochs with a batch size of 128 samples using the **Adam** optimizer and **Categorical Crossentropy** as loss function. 
