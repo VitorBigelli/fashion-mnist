@@ -10,7 +10,7 @@ In order to the model runs properly you need to download [Google Chrome](https:/
 
 1. [Fork and clone](https://guides.github.com/activities/forking/) this repository.
 
-2. Open the Web Server for Chrome extension. You can do so by accessing the `chrome://apps` url in the Chrome search bar. 
+2. Open the **Web Server for Chrome** extension. You can do so by accessing the `chrome://apps` url in the Chrome search bar. 
 
 3. Click the **"Open Folder"** button, select and open the directory to where you cloned this repository. 
 
@@ -47,7 +47,7 @@ Trainable params: 215658
 Non-trainable params: 0
 ``` 
 
-## Data: 
+### Data: 
 
 * **Dataset total size:** 70000 
 * **Dataset used size:** 7000 (10%) 
@@ -55,7 +55,7 @@ Non-trainable params: 0
 * **Testing data size:** 1000 
 
 
-## Training 
+### Training 
 
 * **Epochs:** 20 
 * **Batch size:** 128 
