@@ -33,7 +33,6 @@ function getModel() {
         metrics: ['accuracy']
     });
     
-    console.log(model.summary())
 
     return model;
 }

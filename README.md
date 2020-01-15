@@ -20,9 +20,9 @@ In order to the model runs properly you need to download [Google Chrome](https:/
 
 6. When training is done you will be able to draw in the black canvas to make predictions. 
 
-## Model Architecture 
+## Model 
 
-The model summary can be seen bellow. 
+### Architecture 
 
 ```
 _________________________________________________________________ 
@@ -47,40 +47,17 @@ Trainable params: 215658
 Non-trainable params: 0
 ``` 
 
-The model is composed by: 
+## Data: 
 
-* conv2d 
-    * Kernel Size: 3 
-    * Filters: 16 
-    * Activation: ReLu 
-* maxPooling2d: 
-    * Pooling size: [2,2]
-* conv2d 
-    * Kernel Size: 3 
-    * Filters: 64 
-    * Activation: ReLu 
-* maxPooling2d: 
-    * Pooling size: [2,2]
-* flatten 
-* dense: 
-    * Units: 128 
-    * Activation: ReLu 
-* dense: 
-    * Units: 10 (one for each possible class) 
-    * Activation: SoftMax
+* **Dataset total size:** 70000 
+* **Dataset used size:** 7000 (10%) 
+* **Training data size:** 6000 
+* **Testing data size:** 1000 
 
 
-## Data info: 
+## Training 
 
-* Dataset total size: 70000 
-* Dataset used size: 7000 (10%) 
-* Training data size: 6000 
-* Testing data size: 1000 
-
-
-## Training parameters 
-
-* Epochs: 20 
-* Batch size: 128 
-* Optimizer: **Adam** 
-* Loss function: **Categorical Crossentropy** . 
+* **Epochs:** 20 
+* **Batch size:** 128 
+* **Optimizer:** Adam 
+* **Loss function:** Categorical Crossentropy . 
