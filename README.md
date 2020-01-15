@@ -6,12 +6,46 @@ This repository contains a TensorFlow JS model that trains on the [Fashion Mnist
 
 In order to the model runs properly you need to download [Google Chrome](https://www.google.pt/intl/pt-PT/chrome/?brand=CHBD&gclid=EAIaIQobChMIv-vZmImG5wIVBA6RCh3kWQNmEAAYASAAEgKDmvD_BwE&gclsrc=aw.ds) and install the [Web Server for Chrome extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb). 
 
-## Get it running 
+## Running
 
-1. Fork this repository and clone it to your machine.
+1. [Fork and clone](https://guides.github.com/activities/forking/) this repository.
+
 2. Open the Web Server for Chrome extension. You can do so by accessing the `chrome://apps` url in the Chrome search bar. 
-3. Click the *"Open Folder"* button, select and open the directory to where you cloned this repository. 
-4. Click the generated *Web Server URL*. It will display for you the files of the directory. 
+
+3. Click the **"Open Folder"** button, select and open the directory to where you cloned this repository. 
+
+4. Click the generated **Web Server URL**. It will display for you the files of the directory. 
+
 5. Click the `index.html` file and the application will automatically load and train. 
+
 6. When training is done you will be able to draw in the black canvas to make predictions. 
 
+## Model Info 
+
+The model summary can be seen bellow. 
+
+```
+_________________________________________________________________ 
+Layer (type)                 Output shape              Param #   
+================================================================= 
+conv2d_Conv2D1 (Conv2D)      [null,26,26,16]           160       
+_________________________________________________________________ 
+max_pooling2d_MaxPooling2D1  [null,13,13,16]           0         
+_________________________________________________________________ 
+conv2d_Conv2D2 (Conv2D)      [null,11,11,64]           9280      
+_________________________________________________________________ 
+max_pooling2d_MaxPooling2D2  [null,5,5,64]             0         
+_________________________________________________________________ 
+flatten_Flatten1 (Flatten)   [null,1600]               0         
+_________________________________________________________________ 
+dense_Dense1 (Dense)         [null,128]                204928    
+_________________________________________________________________ 
+dense_Dense2 (Dense)         [null,10]                 1290      
+================================================================= 
+Total params: 215658 tfjs@latest:2:593007
+Trainable params: 215658 tfjs@latest:2:593032
+Non-trainable params: 0
+``` 
+
+It trains on 7000 images, splitting on training and testing sets with 6000 and 1000 samples, respectively. 
+The training is made over 20 epochs with a batch size of 128 samples using the **Adam** optimizer and **Categorical Crossentropy** as loss function. 
